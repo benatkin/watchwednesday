@@ -20,3 +20,8 @@ set :haml, {:format => :html5 }
 get '/' do
   haml :index
 end
+
+get '/:username' do
+  @username = params[:username]
+  haml :user
+end
