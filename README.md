@@ -15,9 +15,9 @@ Based upon [The Changelog](http://thechangelog.com/)'s [Watch Wednesday](http://
 
 Quiet:
 
-> \#WatchWednesday \*jashkenas coffee-script docco \*cloudhead less \*github gollum \*creationix postgres-js http://watchwednesday.com/benatkin/1
+> \#WatchWednesday \*jashkenas coffee-script docco \*cloudhead less \*github gollum \*creationix postgres-js http://watchwednesday.com/benatkin
 
 Loud:
 
-> \#WatchWednesday \*jashkenas coffee-script docco @cloudhead less @github gollum @creationix postgres-js http://watchwednesday.com/benatkin/1
+> \#WatchWednesday \*jashkenas coffee-script docco @cloudhead less @github gollum @creationix postgres-js http://watchwednesday.com/benatkin
 
