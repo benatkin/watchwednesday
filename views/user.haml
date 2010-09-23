@@ -10,4 +10,7 @@
         Follow [@watch_wednesday](http://twitter.com/watch_wednesday) or
         watch [watchwednesday](http://github.com/benatkin/watchwednesday) for updates!
       %h2= @username
+      - @tweets.each do |tweet|
+        %p
+          != tweet
 

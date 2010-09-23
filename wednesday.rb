@@ -1,7 +1,8 @@
 require 'sinatra'
 require 'haml'
+require 'twitter'
 
-ENTITY_RE = /\A[\w*@][\w-]*\Z/
+ENTITY_RE = /\A[\w*@](\w|-|\.)*\Z/
 
 class WednesdayTweet
   attr_accessor :text
@@ -41,5 +42,8 @@ end
 
 get '/:username' do
   @username = params[:username]
+  @tweets = Twitter::Search.new("#watchwednesday watchwednesday.com #{@username}").map do |tweet|
+    WednesdayTweet.new(tweet.text).render
+  end
   haml :user
 end
