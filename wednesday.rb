@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'haml'
 
-ENTITY_RE = /(?:\s|\A)([*@]?[\w-]+)(?:\s|\Z)/
+ENTITY_RE = /\A[\w*@][\w-]*\Z/
 
 class WednesdayTweet
   attr_accessor :text
@@ -10,39 +10,24 @@ class WednesdayTweet
     self.text = text
   end
 
-  def entities
-    user = nil
-    a = []
-    offset = 0
-    loop do
-      break if not text[offset..-1]
-      match = text[offset..-1].match(ENTITY_RE)
-      break if not match
-
-      capture = match.captures[0]
-      entity = {
-        :text  => capture,
-        :begin => offset + match.begin(0),
-        :end   => offset + match.end(0),
-        :url   => if capture[0..0] == '*' then
-                    user = capture[1..-1]
-                    'http://github.com/' + user
-                  elsif capture[0..0] == '@' then
-                    user = capture[1..-1]
-                    'http://twitter.com/' + user
-                  else
-                    user && 'http://github.com/' + user + '/' + capture
-                  end
-      }
-      a << entity
-
-      offset += (match.pre_match + match.to_s).length
-    end
-    a
-  end
-
   def render
-    entities
+    username = ''
+    text.scan(/\s+|\S+/).map do |s|
+      if s.match(ENTITY_RE)
+        entity = s
+        if entity[0..0] == '*' then
+          username = entity[1..-1]
+          "<a href='http://github.com/#{username}'>#{entity}</a>"
+        elsif entity[0..0] == '@' then
+          username = entity[1..-1]
+          "<a href='http://twitter.com/#{username}'>#{entity}</a>"
+        else
+          "<a href='http://github.com/#{username}/#{entity}'>#{entity}</a>"
+        end
+      else
+        s
+      end
+    end.join('')
   end
 end
 
