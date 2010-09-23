@@ -12,5 +12,7 @@
       %h2= @username
       - @tweets.each do |tweet|
         %p
-          != tweet
+          %b= "@#{tweet.from_user}:"
+          != tweet.linked_text
+          %i= tweet.created_at
 

@@ -22,8 +22,10 @@ class WednesdayTweet
         elsif entity[0..0] == '@' then
           username = entity[1..-1]
           "<a href='http://twitter.com/#{username}'>#{entity}</a>"
-        else
+        elsif username.length > 0
           "<a href='http://github.com/#{username}/#{entity}'>#{entity}</a>"
+        else
+          entity
         end
       else
         s
@@ -43,7 +45,8 @@ end
 get '/:username' do
   @username = params[:username]
   @tweets = Twitter::Search.new("#watchwednesday watchwednesday.com #{@username}").map do |tweet|
-    WednesdayTweet.new(tweet.text).render
+    tweet.linked_text = WednesdayTweet.new(tweet.text).render
+    tweet
   end
   haml :user
 end
