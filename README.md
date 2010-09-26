@@ -6,7 +6,7 @@ Based upon [The Changelog](http://thechangelog.com/)'s [Watch Wednesday](http://
 
 # Status
 
-Incomplete. Currently there's one page, [http://watchwednesday.com/benatkin](http://github.com/watchwednesday.com/benatkin),
+Incomplete. Currently there's one page, [http://watchwednesday.com/benatkin](http://watchwednesday.com/benatkin),
 that gets tweets containing "benatkin" (or another username) and "watchwednesday.com", and displays them with links based on
 the tweet format below.
 
