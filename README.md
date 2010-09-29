@@ -2,7 +2,7 @@
 
 A project for sharing GitHub repos to watch on twitter.
 
-Based upon [The Changelog](http://thechangelog.com/)'s [Watch Wednesday](http://thechangelog.com/post/1167855730/watchwednesday-20100922) project. Totally unofficial.
+Based upon [The Changelog](http://thechangelog.com/)'s [Watch Wednesday](http://thechangelog.com/post/1167855730/watchwednesday-20100922) project.
 
 # Status
 
@@ -23,7 +23,6 @@ Loud:
 
 # TODO
 
-* A tweet format for #WatchWednesday
-* A tool that automatically adds links based on the tweet format
-* An aggregator
+* Download tweets on the server
 * A form for building up a tweet
+* Optional Sign In With Twitter for extra features
