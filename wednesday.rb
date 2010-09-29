@@ -42,11 +42,3 @@ get '/' do
   haml :index
 end
 
-get '/:username' do
-  @username = params[:username]
-  @tweets = Twitter::Search.new("#watchwednesday watchwednesday.com #{@username}").map do |tweet|
-    tweet.linked_text = WednesdayTweet.new(tweet.text).render
-    tweet
-  end
-  haml :user
-end
