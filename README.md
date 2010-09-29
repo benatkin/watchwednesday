@@ -12,7 +12,7 @@ the tweet format below.
 
 # Gist support
 
-I like using gists with Markdown, rather than tweets alone, for several reasons:
+I like using [gists with Markdown](http://gist.github.com/603634), rather than tweets alone, for several reasons:
 
 * Can hold more information, including *why* I'm interested in the repos
 * Easy to fork
